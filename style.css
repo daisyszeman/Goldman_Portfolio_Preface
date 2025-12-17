@@ -1,0 +1,68 @@
+:root {
+    /* Easy Edit Zone: Change colors here */
+    --primary-color: #FFAB00; /* ScratchJr Orange */
+    --secondary-color: #4A90E2; /* Nice Blue */
+    --bg-color: #F9F9F9;
+    --text-color: #333;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    margin: 0;
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* Login Overlay Styles */
+#login-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+}
+.login-box {
+    background: white; padding: 2rem; border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid var(--primary-color);
+}
+input { padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+button {
+    padding: 10px 20px; font-size: 1rem; background: var(--primary-color);
+    color: white; border: none; border-radius: 4px; cursor: pointer;
+}
+button:hover { opacity: 0.9; }
+
+/* Portfolio Styles */
+header { padding: 3rem 1rem; background: white; }
+h1 { margin: 0; color: var(--secondary-color); font-size: 2.5rem; }
+.bio { max-width: 600px; margin: 1rem auto; font-size: 1.2rem; line-height: 1.6; }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: white; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s; cursor: pointer; text-align: left;
+}
+.project-card:hover { transform: translateY(-5px); }
+
+.img-container {
+    height: 200px; background: #eee; position: relative; overflow: hidden;
+}
+.img-container img { width: 100%; height: 100%; object-fit: cover; }
+.play-icon {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-size: 3rem; color: white; opacity: 0.8; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.card-text { padding: 1.5rem; }
+.card-text h3 { margin: 0 0 0.5rem 0; color: var(--secondary-color); }
+.card-text p { margin: 0; font-size: 0.95rem; color: #666; }

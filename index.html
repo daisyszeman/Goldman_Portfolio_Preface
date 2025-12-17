@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Protected Portfolio</h2>
+            <p>Please enter the password to view this student's work.</p>
+            <input type="password" id="password-input" placeholder="Password">
+            <button onclick="checkPassword()">Enter</button>
+            <p id="error-msg" style="color: red; display: none;">Incorrect password</p>
+        </div>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <header>
+            <h1 id="student-name">Student Name</h1>
+            <p id="student-bio" class="bio">Student Bio goes here...</p>
+        </header>
+
+        <section class="grid-container" id="project-grid">
+            </section>
+        
+        <footer>
+            <p>Created with ScratchJr</p>
+        </footer>
+    </div>
+
+    <script src="content.js"></script>
+    <script>
+        // 1. Load Content from content.js
+        document.title = portfolioConfig.pageTitle;
+        document.getElementById('student-name').innerText = portfolioConfig.studentName;
+        document.getElementById('student-bio').innerText = portfolioConfig.studentBio;
+
+        const grid = document.getElementById('project-grid');
+
+        portfolioConfig.projects.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            
+            // Allow clicking the whole card to go to the video
+            card.onclick = () => window.open(project.videoLink, '_blank');
+
+            card.innerHTML = `
+                <div class="img-container">
+                    <img src="${project.thumbnail}" alt="${project.title}">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="card-text">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // 2. Password Logic
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            if (input === portfolioConfig.password) {
+                document.getElementById('login-overlay').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+
+        // Allow pressing "Enter" key
+        document.getElementById('password-input').addEventListener("keypress", function(event) {
+            if (event.key === "Enter") checkPassword();
+        });
+    </script>
+</body>
+</html>
