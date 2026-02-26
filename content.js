@@ -15,7 +15,7 @@ const portfolioConfig = {
             title: "Angry Bird",
             description: "This is a flappy angry bird game. I added buttons to move the bird up and down and put obstacles in the way. If the bird hits an obstacle, the game is over. If the bird stays safe for 10 seconds, you win!🐥",
             thumbnail: "thumbnail/angrybird.jpg", // The filename of the screenshot in the images folder
-            videoLink: "https://drive.google.com/file/d/1iMqa4dM68KmF9l-Zv8H6k3AyHg1d9-Zv/view?usp=sharing" // The link to the video on Google Drive
+            videoLink: "https://drive.google.com/file/d/1JfxjRFaS7mu6ey7sxnUdRYcN4JzMDrtT/view?usp=sharing" // The link to the video on Google Drive
         },
         {
             title: "Car Racing",
